@@ -61,3 +61,5 @@ for epoch in range(EPOCHS):
         f"Val Loss: {epoch_val_loss:.4f} | "
         f"Val Acc: {val_accuracy:.4f}"
     )
+
+torch.save(model.state_dict(), "flower_cnn.pth")

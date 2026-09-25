@@ -42,8 +42,6 @@ test_dataset = datasets.ImageFolder(
 )
 
 
-print(train_dataset.class_to_idx)
-
 train_loader = DataLoader(
     train_dataset,
     batch_size=BATCH_SIZE,
