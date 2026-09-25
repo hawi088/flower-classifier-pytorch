@@ -14,7 +14,11 @@ train_transform = v2.Compose([
     ),#take random section of the original image, crop it and resize the cropped image in to 128 x 128, and the scale refers the 80% to 100% of the original image should be present
     v2.RandomHorizontalFlip(), # flip the image right or left randomly (implicitly mentioned 50% of the time)
     v2.ToImage(),
-    v2.ToDtype(torch.float32,scale=True)
+    v2.ToDtype(torch.float32,scale=True),
+    v2.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]
+    )
 ])
 
 #train transforms 
@@ -25,6 +29,10 @@ eval_transform = v2.Compose([
     ),
     v2.ToImage(),
     v2.ToDtype(torch.float32,scale=True),
+    v2.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]
+    )
 ])
 
 train_dataset = datasets.ImageFolder(
