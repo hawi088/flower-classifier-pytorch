@@ -50,7 +50,7 @@ for epoch in range(EPOCHS):
             predictions = model(images)
             loss = loss_fn(predictions,labels)
             val_loss+=loss.item()
-            predicted_classes = predictions.argmax(dim=1)
+            predicted_classes = predictions.argmaz(dim=1)
             correct += (predicted_classes == labels).sum().item()
             total +=labels.size(0)
     epoch_val_loss = val_loss / len(val_loader)
@@ -61,5 +61,3 @@ for epoch in range(EPOCHS):
         f"Val Loss: {epoch_val_loss:.4f} | "
         f"Val Acc: {val_accuracy:.4f}"
     )
-
-torch.save(model.state_dict(), "flower_cnn.pth")
